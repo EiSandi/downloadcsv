@@ -55,7 +55,7 @@ def webhook(request):
     user = auth.sign_in_with_email_and_password("team@lumenlab.asia", "teamtempo")
     db = firebase.database()
 
-    f = csv.writer(open("https://raw.githubusercontent.com/EiSandi/downloadcsv/master/test.csv", "w"))
+    f = csv.writer(open("test.csv", "w"))
     f.writerow(["key","query", "slack_user_id", "created"])
 
     all_users = db.child("agents").get()
