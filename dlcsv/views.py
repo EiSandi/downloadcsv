@@ -66,6 +66,4 @@ def webhook(request):
         slack_user_id=v2.get("slack_user_id")
         created=v2.get("created")
         f.writerow([v1,query,slack_user_id,created])
-    return JsonResponse("downloadcsv/"+ "test" + ".csv", safe=False)
-
-
+    return JsonResponse("https://raw.githubusercontent.com/EiSandi/downloadcsv/master/"+ "test" + ".csv", safe=False)
