@@ -1,0 +1,6 @@
+Django==1.10.6
+djangorestframework==3.6.2
+psycopg2==2.7.1
+APScheduler==3.0.0
+Pyrebase==3.0.27
+pytz==2017.2
