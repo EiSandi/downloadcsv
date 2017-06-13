@@ -103,7 +103,7 @@ def webhook(request):
 
     k = Key(bucket)
     k.key = 'my test file'
-    k.set_contents_from_filename(testfile,
+    k.set_contents_from_filename(fn,
     cb=percent_cb, num_cb=10)
 
     return JsonResponse("done", safe=False)
