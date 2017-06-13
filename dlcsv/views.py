@@ -71,9 +71,7 @@ def webhook(request):
 
     import csv
     handle, fn = tempfile.mkstemp(suffix='.csv')
-    import subprocess, sys
-    opener ="open" if sys.platform == "darwin" else "xdg-open"
-    subprocess.call([opener,fn])
+
     with open(fn,"w") as f:
         writer=csv.writer(f)
         writer.writerow(["key","query", "slack_user_id", "created"])  
@@ -94,9 +92,7 @@ def webhook(request):
     bucket_name='teamtempo'
     bucket = conn.get_bucket(bucket_name)
     # bucket = conn.create_bucket(bucket_name,
-    #     location=boto.s3.connection.Location.DEFAULT)
-
-    
+    #     location=boto.s3.connection.Location.DEFAULT)    
     print 'Uploading %s to Amazon S3 bucket %s' % \
        (fn, bucket_name)
 
