@@ -38,6 +38,7 @@ import pyrebase
 import boto
 import boto.s3
 import sys
+import datetime
 from boto.s3.key import Key
 
 import pytz
@@ -100,9 +101,12 @@ def webhook(request):
         sys.stdout.write('.')
         sys.stdout.flush()
 
-
-    k = Key(bucket)
-    k.key = 'my test file'
+    # k = Key(bucket)
+    # # k.key = datetime.datetime.now()
+    key_name = datetime.datetime.now()
+    path = 'reports'
+    full_key_name = os.path.join(path, key_name)
+    k = bucket.new_key(full_key_name)
     k.set_contents_from_filename(fn,
     cb=percent_cb, num_cb=10)
 
