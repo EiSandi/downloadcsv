@@ -38,7 +38,6 @@ import pyrebase
 import boto
 import boto.s3
 import sys
-import datetime
 from boto.s3.key import Key
 
 import pytz
@@ -103,8 +102,8 @@ def webhook(request):
 
     # k = Key(bucket)
     # # k.key = datetime.datetime.now()
-    now = datetime.datetime.now()
-    key_name =now
+    
+    key_name =str(dt.datetime.now())
     path = 'reports'
     full_key_name = os.path.join(path, key_name)
     k = bucket.new_key(full_key_name)
